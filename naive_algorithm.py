@@ -1,4 +1,7 @@
+#!/usr/bin/env python
+# coding: utf-8
 
+# In[ ]:
 
 
 from Bio import SeqIO  # Import SeqIO from Bio library
@@ -164,10 +167,10 @@ class NaiveAlgorithm:
     
     
 
-    def reverse_complement(self, concatenated_sequences):
+    def reverse_complement(self, pattern):
         
         """
-        Compute the reverse complement of a DNA sequence.
+        Compute the reverse complement of a pattern DNA.
 
         Parameters:
         - concatenated_sequences (str): Input DNA sequence.
@@ -176,15 +179,15 @@ class NaiveAlgorithm:
         - str: Reverse complement of the input sequence.
         """
         
-        concatenated_sequences = concatenated_sequences.upper()
+        pattern = pattern.upper()
         
-        reverse_complement_seq = ''
+        r_pattern = ''
 
-        for char in concatenated_sequences:
-            reverse_complement_seq = self.complement_dict[char] + reverse_complement_seq
+        for char in pattern:
+            r_pattern = self.complement_dict[char] + r_pattern
 
             
-        return reverse_complement_seq
+        return r_pattern
     
     
     
@@ -192,14 +195,16 @@ class NaiveAlgorithm:
     
     
 
-    def naive(self, concatenated_sequences, pattern):
+    def naive(self, concatenated_sequences, pattern, r_pattern):
         
         """
-        Find exact matches of a pattern in a concatenated sequence.
+        Find exact matches of a pattern and its reverse complement 
+        in a concatenated sequence.
 
         Parameters:
         - concatenated_sequences (str): Concatenated DNA sequence.
         - pattern (str): Pattern to search for.
+        - r_pattern (str): reverse complement of the pattern sequence
 
         Returns:
         - list: List of starting indices of exact matches.
@@ -207,7 +212,7 @@ class NaiveAlgorithm:
         
         occurrences = []  # List to store starting indices of matches
         
-        r_sequence = self.reverse_complement(concatenated_sequences)
+        #r_sequence = self.reverse_complement(concatenated_sequences)
 
         for i in range(len(concatenated_sequences) - len(pattern) + 1):
             is_match = True
@@ -222,19 +227,23 @@ class NaiveAlgorithm:
                     
             if is_match:
                 occurrences.append(i)
-
                 
-            is_match = True
-            for k in range(len(pattern)):
-                if r_sequence[i + k] != pattern[k]:
-                    is_match = False
-                    break
+        if pattern != r_pattern: # check if pattern and its reverse are not the same
+            
+            for i in range(len(concatenated_sequences) - len(r_pattern) + 1):
+                
+                is_match = True
+
+                for j in range(len(pattern)):
+                
+                    if concatenated_sequences[i + j] != r_pattern[j]:
+                        is_match = False
+                        break
 
                     
-            if is_match and i not in occurrences:
-                occurrences.append(i)
-
-                
+                if is_match:
+                    occurrences.append(i)
+            
         return occurrences
     
     
@@ -274,14 +283,21 @@ class NaiveAlgorithm:
     
     
     
-# Usage example:    
+# Usage example:
+
 path = 'address_of_a_file'
 pattern = 'AGCTGGGTCANN'
+
 
 model = NaiveAlgorithm(path)
 
 base_count, base_percentages = model.base_content()
+
 concatenated_seq = model.concatenate_sequences()
-naive_matches = model.naive(concatenated_seq, pattern)
+
+r_pattern = model.reverse_complement(pattern)
+
+naive_matches = model.naive(concatenated_seq, pattern, r_pattern)
+
 generated_reads = model.generate_reads(concatenated_seq, num_reads=200, len_reads=20)
 
