@@ -1,7 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
 
-# In[22]:
 
 
 from Bio import SeqIO as s
@@ -12,7 +9,7 @@ class FastaReader:
     def __init__(self, file):
         
         self.file = file
-        self.sequences = self.fasta_reader(file)
+        self.sequences = self.fasta_reader()
         
         
     def fasta_reader(self):

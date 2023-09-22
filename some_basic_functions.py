@@ -1,7 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
 
-# In[64]:
 
 
 from Bio.Data import CodonTable
