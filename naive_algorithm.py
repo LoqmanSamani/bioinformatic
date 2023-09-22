@@ -1,5 +1,6 @@
 
 
+
 from Bio import SeqIO  # Import SeqIO from Bio library
 import collections as co
 import random
@@ -21,6 +22,7 @@ class NaiveAlgorithm:
         """
         
         self.file = file_path
+        self.file_format_checker()  # Determine the file format
         self.sequences = self.file_reader()  # Dictionary to store sequences
         self.file_format = None
 
@@ -103,7 +105,7 @@ class NaiveAlgorithm:
     
     
 
-    def base_content(self, sequences):
+    def base_content(self):
         
         """
         Calculate the number and percentage of each base in sequences.
@@ -118,7 +120,7 @@ class NaiveAlgorithm:
         count = co.Counter()  # Dictionary to count bases
 
         
-        for sequence in sequences.values():
+        for sequence in self.sequences.values():
             count.update(sequence[1])
 
             
@@ -137,7 +139,7 @@ class NaiveAlgorithm:
     
     
 
-    def concatenate_sequences(self, sequences):
+    def concatenate_sequences(self):
         
         """
         Concatenate sequences into a single string.
@@ -151,7 +153,7 @@ class NaiveAlgorithm:
         
         concatenated_sequences = ''
         
-        for val in sequences.values():
+        for val in self.sequences.values():
             concatenated_sequences += val[1]
             
             
@@ -260,27 +262,26 @@ class NaiveAlgorithm:
             
             random_start = random.randint(0, len(concatenated_sequences) - len_reads)
             generated_read = concatenated_sequences[random_start:random_start + len_reads]
-            reads.append(generated_read)
+            reads.append(str(generated_read))
 
             
         return reads
-
-
     
- 
-
     
-# Usage example:
+    
+    
+    
+    
+    
+    
+# Usage example:    
 path = 'address_of_a_file'
 pattern = 'AGCTGGGTCANN'
 
-
-
 model = NaiveAlgorithm(path)
-model.file_format_checker()
-sequences = model.file_reader()
-base_count, base_percentages = model.base_content(sequences)
-concatenated_seq = model.concatenate_sequences(sequences)
+
+base_count, base_percentages = model.base_content()
+concatenated_seq = model.concatenate_sequences()
 naive_matches = model.naive(concatenated_seq, pattern)
 generated_reads = model.generate_reads(concatenated_seq, num_reads=200, len_reads=20)
 
