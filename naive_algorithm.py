@@ -1,7 +1,11 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
+"""
+The  NaiveAlgorithm  class is a  Python  implementation  for basic  DNA  sequence  analysis  tasks.
+It is designed to handle input files in FASTA or FASTQ format and provides several functionalities,
+including  reading  sequences from input files, calculating  base content statistics, finding exact
+matches of  a  given DNA  pattern and  its reverse  complement  within a concatenated sequence, and 
+generating  synthetic  DNA reads from a  reference genome. The class utilizes the Biopython library
+for reading sequences and offers flexibility for various sequence analysis operations.
+"""
 
 
 from Bio import SeqIO  # Import SeqIO from Bio library
@@ -12,7 +16,7 @@ import random
 
 
 
-class NaiveAlgorithm:
+class NaiveExactMachingAlgorithm:
    
 
     def __init__(self, file_path):
@@ -289,7 +293,7 @@ path = 'address_of_a_file'
 pattern = 'AGCTGGGTCANN'
 
 
-model = NaiveAlgorithm(path)
+model = NaiveExactMachingAlgorithm(path)
 
 base_count, base_percentages = model.base_content()
 
