@@ -1,16 +1,25 @@
 
-
-
 from Bio import SeqIO as s
 
 
+
+
+
 class FastaReader:
+
     
     def __init__(self, file):
         
         self.file = file
         self.sequences = self.fasta_reader()
-        
+      
+
+
+
+
+
+
+  
         
     def fasta_reader(self):
         
@@ -24,11 +33,23 @@ class FastaReader:
                 
         self.sequences = sequences
         
-        
+       
+
+
+
+
+
+ 
         
     def num_sequences(self):
         
         return len(self.sequences)
+
+
+
+
+
+
 
 
 
@@ -52,6 +73,12 @@ class FastaReader:
         return longest_seq, shortest_seq
     
     
+
+
+
+
+
+
     
     
     
@@ -123,6 +150,13 @@ class FastaReader:
     
 
 
+
+
+
+
+
+
+
     def repeat_finder(self, len_repeat):
         
         repeat_in_seq = {}
@@ -147,7 +181,13 @@ class FastaReader:
         return repeat_in_seq
 
 
-        
+     
+
+
+
+
+
+   
         
 # Instantiate the FastaReader class with a FASTA file path
 fasta_reader = FastaReader('example.fasta')

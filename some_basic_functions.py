@@ -1,11 +1,15 @@
-
-
-
 from Bio.Data import CodonTable
+
 import numpy as np 
 
 
+
+
+
+
+
 class SequenceAnalyser:
+
     
     def __init__(self):
         
@@ -38,7 +42,11 @@ class SequenceAnalyser:
             
             
             
-            
+     
+
+
+
+       
             
         
     def seq_cleaner(self, seq):
@@ -54,6 +62,10 @@ class SequenceAnalyser:
     
     
     
+
+
+
+
         
         
     def gc_percentage(self, seq):
@@ -70,6 +82,10 @@ class SequenceAnalyser:
     
     
     
+
+
+
+
     
     
     def sec_transcriptor(self, seq):
@@ -83,6 +99,10 @@ class SequenceAnalyser:
         return translated_seq
     
     
+
+
+
+
     
     
     
@@ -100,6 +120,10 @@ class SequenceAnalyser:
     
     
     
+
+
+
+
     
     
     def seq_complement(self, seq):
@@ -115,6 +139,11 @@ class SequenceAnalyser:
     
     
     
+
+
+
+
+
     
     def reverse_complement(self, seq):
         """
@@ -128,6 +157,11 @@ class SequenceAnalyser:
     
     
     
+
+
+
+
+
     
     
     def length_seq(self, seq):
@@ -141,6 +175,10 @@ class SequenceAnalyser:
     
     
     
+
+
+
+
     
     def numcleotide_frequency(self, seq):
         """
@@ -162,6 +200,13 @@ class SequenceAnalyser:
         
         return frequencies
     
+
+
+
+
+
+
+
     
     
     def gc_skew(self, seq):
@@ -179,6 +224,12 @@ class SequenceAnalyser:
         return gc_skew
     
     
+
+
+
+
+
+
     
     
     def transcription(self, seq):
@@ -193,6 +244,13 @@ class SequenceAnalyser:
     
     
     
+
+
+
+
+
+
+
     
     def reverse_transcription(self, seq):
         """
@@ -206,6 +264,13 @@ class SequenceAnalyser:
     
     
     
+
+
+
+
+
+
+
     
     
     def codon_count(self, seq):
@@ -231,61 +296,118 @@ class SequenceAnalyser:
     
         
         
-        
+  
+
+
+      
         
 
 # Generate a random DNA sequence
 random_sequence = ''.join(np.random.choice(['A', 'G', 'C', 'T'], 100))
 
+
 # Create an instance of SequenceAnalyser
 sequence_analyser = SequenceAnalyser()
 
+
 # Clean the DNA sequence
 cleaned_sequence = sequence_analyser.seq_cleaner(random_sequence)
+
 print("Cleaned Sequence:", cleaned_sequence)
+
+
+
 
 # Calculate the GC percentage of the sequence
 gc_percentage = sequence_analyser.gc_percentage(cleaned_sequence)
+
 print("GC Percentage:", gc_percentage, "%")
+
+
+
 
 # Transcribe the DNA sequence to RNA
 transcribed_sequence = sequence_analyser.sec_transcriptor(cleaned_sequence)
+
 print("Transcribed Sequence (RNA):", transcribed_sequence)
+
+
 
 # Translate the RNA sequence to a polypeptide sequence
 polypeptide_sequence = sequence_analyser.seq_translator(transcribed_sequence)
+
 print("Polypeptide Sequence:", polypeptide_sequence)
+
+
+
 
 # Find the complement of the DNA sequence
 sequence_complement = sequence_analyser.seq_complement(cleaned_sequence)
+
 print("Sequence Complement:", sequence_complement)
+
+
+
 
 # Find the reverse complement of the DNA sequence
 reverse_complement_sequence = sequence_analyser.reverse_complement(cleaned_sequence)
+
 print("Reverse Complement:", reverse_complement_sequence)
+
+
+
 
 # Calculate the length of the DNA sequence
 sequence_length = sequence_analyser.length_seq(cleaned_sequence)
+
 print("Sequence Length:", sequence_length)
+
+
+
+
 
 # Calculate the nucleotide frequency of the DNA sequence
 nucleotide_frequency = sequence_analyser.numcleotide_frequency(cleaned_sequence)
+
 print("Nucleotide Frequency:", nucleotide_frequency)
+
+
+
+
 
 # Calculate the GC skew of the DNA sequence
 gc_skew = sequence_analyser.gc_skew(cleaned_sequence)
+
 print("GC Skew:", gc_skew)
+
+
+
+
 
 # Transcribe the DNA sequence to RNA
 rna_sequence = sequence_analyser.transcription(cleaned_sequence)
+
 print("Transcribed Sequence (RNA):", rna_sequence)
+
+
+
+
+
 
 # Reverse transcribe the RNA sequence to DNA
 reverse_transcribed_sequence = sequence_analyser.reverse_transcription(rna_sequence)
+
 print("Reverse Transcribed Sequence (DNA):", reverse_transcribed_sequence)
+
+
+
+
+
+
 
 # Count the occurrences of each codon in the DNA sequence
 codon_counts = sequence_analyser.codon_count(cleaned_sequence)
+
 print("Codon Counts:", codon_counts)
 
               

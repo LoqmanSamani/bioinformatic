@@ -1,12 +1,15 @@
 
-
 import random
 
 
 
 
 
+
+
+
 class Indexing:
+
 
     
     def __init__(self, data, len_k_mer):
@@ -25,6 +28,8 @@ class Indexing:
         
         # Create a hash table for efficient pattern matching
         self.hash_table = self.make_hash_table(self.data, self.len_k_mer)
+
+
 
 
 
@@ -72,6 +77,8 @@ class Indexing:
 
 
 
+
+
     
     def query(self, pattern):
         """
@@ -102,6 +109,8 @@ class Indexing:
                              "(the length of the pattern must be equal or shorter than the length of k_mer)")
 
         return hits
+
+
 
 
 

@@ -1,12 +1,22 @@
 
-
-
 import random
 
+
+
+
+
 class NaiveHamming:
+
     
     def __init__(self):
         pass
+
+
+
+
+
+
+
     
     # Reverse the pattern
     def reverse_pattern(self, pattern):
@@ -20,6 +30,14 @@ class NaiveHamming:
         - str: The reversed DNA pattern.
         """
         return pattern[::-1]
+
+
+
+
+
+
+
+
     
     def naive_hamming(self, data, pattern, num_mismatches):
         """
@@ -86,17 +104,30 @@ class NaiveHamming:
                 
         return hits
 
+
+
+
+
+
 # Generate a random DNA sequence
 data =''.join([random.choice('AATGGGGCGC') for _ in range(10000)])
+
+
 
 # Define the pattern to search for
 pattern = "ATCGCT"
 
+
+
 # Create an instance of the NaiveHamming class
 model = NaiveHamming()
 
+
+
 # Define the maximum number of allowed mismatches
 mismatch = 3
+
+
 
 # Find approximate matches of the pattern in the DNA sequence
 hits = model.naive_hamming(data, pattern, mismatch)
