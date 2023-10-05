@@ -14,7 +14,6 @@ from biological data.
 This repository serves as my digital laboratory where I experiment
 with various bioinformatics concepts, algorithms, and tools.
 
-## Courses
 
 ## Courses
 
