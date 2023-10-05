@@ -1,6 +1,9 @@
 import numpy as np
 from datetime import datetime as t
 
+
+
+
 def hamming_distance(seq1, seq2):
     """
     Calculate the Hamming distance between two sequences.
@@ -25,6 +28,14 @@ def hamming_distance(seq1, seq2):
             num_sub += 1
 
     return num_sub
+
+
+
+
+
+
+
+
 
 def edit_distance_recursive(seq1, seq2):
     """
@@ -59,6 +70,20 @@ def edit_distance_recursive(seq1, seq2):
             dis_diag = edit_distance_recursive(seq1[:-1], seq2[:-1]) + 1
 
     return min(dis_hor, dis_ver, dis_diag)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 def edit_distance(seq1, seq2):
     """
@@ -105,26 +130,45 @@ def edit_distance(seq1, seq2):
 
 
 
+
+
+
+
+
+
+
 t_s = t.now()
 # Calculate edit distance using dynamic programming (faster algorithm)
 print(edit_distance('Shakcspeer', 'shac  ptea'))
 t_e = t.now()
+
+
 
 tr_s = t.now()
 # Calculate edit distance using the slow recursive algorithm
 print(edit_distance_recursive('Shakcspeer', 'shac  ptea'))
 tr_e = t.now()
 
+
+
 # Calculate the time taken by each algorithm
 time1 = tr_e - tr_s  # Time taken by the recursive algorithm
 time2 = t_e - t_s    # Time taken by the dynamic programming algorithm
 
+
+
 print("Time taken by recursive algorithm:", time1)
 print("Time taken by dynamic programming algorithm:", time2)
+
+
 
 # Calculate the speedup factor (how many times faster the dynamic programming algorithm is)
 speedup_factor = time1 / time2
 print("Speedup factor:", speedup_factor)
+
+
+
+
 
 
 """
