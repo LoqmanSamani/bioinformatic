@@ -146,3 +146,44 @@ print(greedy_scs)
 
 
 
+
+path = "/home/loqman/Documents/Bioinformatics(coursera)/algorithms_for_dna_sequencing/week4/ads1_week4_reads.fq"
+
+from Bio import SeqIO 
+
+def fasta_reader(path):
+        
+    sequences = []
+        
+    with open(path, 'r') as handle:
+            
+        for seq in SeqIO.parse(handle, 'fastq'):
+
+            sq = seq.seq                
+            sequences.append(sq)
+
+    return sequences
+
+
+seqs = fasta_reader(path)
+
+
+model1 = GreedySCS()
+
+scs1 = model1.shortest_common_superstring(seqs)
+
+greedy_scs = model.greedy_scs(seqs, 2)
+
+print(scs)
+
+print(greedy_scs)
+
+
+                
+        
+    
+        
+
+
+
+

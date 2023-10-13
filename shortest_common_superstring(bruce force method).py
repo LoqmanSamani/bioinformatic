@@ -46,7 +46,7 @@ def shortest_common_superstring(strings):
         sup = string[0]
 
         for i in range(len(strings) - 1):
-            overlap = len_overlap(string[i], string[i + 1], threshold=1)
+            overlap = len_overlap(string[i], string[i + 1], threshold=3)
             sup += string[i + 1][overlap:]
 
         if scs is None or len(sup) < len(scs):
@@ -60,7 +60,28 @@ def shortest_common_superstring(strings):
 
 # Example usage:
 
-scs = shortest_common_superstring(['AGCTGGCTAGT', 'AGCTGATGCTGATG', 'ACGTCGTAGC'])
+#scs = shortest_common_superstring(['AGCTGGCTAGT', 'AGCTGATGCTGATG', 'ACGTCGTAGC'])
+
+
+scs = set()
+
+for _ in range(100):
+    sc = shortest_common_superstring(['CCT', 'CTT', 'TGC', 'TGG', 'GAT', 'ATT'])
+
+    scs.add(sc)
+
+
+
+
+print(len(scs))
+
+
+
+
+
+
+
+
 
 
     
