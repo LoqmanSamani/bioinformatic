@@ -63,8 +63,8 @@ I'm currently enrolled in the following bioinformatics courses:
 6. **Command Line Tools for Genomic Data Science**
    - Offered by: Johns Hopkins University
    - Platform: Coursera
-   - Description: Master the command-line tools and Unix-based environments commonly
-                  used in genomic data analysis and bioinformatics pipelines.
+   - Description:   Introduces to the commands that you need to manage and analyze directories, files, and large sets of genomic data. 
+                  
 
 
 
