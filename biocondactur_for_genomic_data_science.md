@@ -27,21 +27,21 @@ Course Content
 
 ### Week 1
 
-    Introduction and pre-requisites
+    Introduction and pre-requisites (how to install R and bioconductor and give a ahoer introduction into bioconductor)
 
-    What is Bioconductor
+    What is Bioconductor (A long introduction into bioconductor and explain the main idea behind bioconductor)
 
     Installing Bioconductor
 
-    The Bioconductor Website
+    The Bioconductor Website ( introduce bioconductor.org  and search in this website and get familiar with different parts of the website)
 
-    Useful Online Resources
+    Useful Online Resources ( online websites like rseek, rdocumentation, stackoverflow and the supportsite of bioconductor and how to get help from it.)
 
-    R Base Types
+    R Base Types (here you will learn the basic of R, specific topics like vectors and matrix and datatypes and other basic and essential functionalities, which are commen amoung all programming languages will be teached.)
 
-    Core Bioconductor functionality: GRanges and AnnotationHub
+    Core Bioconductor functionality: GRanges and AnnotationHub (GRanges: a data structure for storing genomic intervals. AnnotaionHub: )
 
-    IRanges
+    IRanges (get familiar with package  IRanges and try to use the basic of it)
 
     GRanges from GenomicRanges (Definition, Usage, seqinfo)
 
