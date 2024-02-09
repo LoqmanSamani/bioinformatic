@@ -197,6 +197,7 @@ class BoyerMooreAlgorithm:
 
         It uses the preprocessed pattern from BoyerMoorePreProcessing
         to efficiently find exact matches in the sequence.
+
         """
     
     def __init__(self, data):
@@ -204,9 +205,6 @@ class BoyerMooreAlgorithm:
         """
         Initializes the BoyerMooreAlgorithm class with the reference sequence data.
         """
-
-
-
         self.data = data
         
         
