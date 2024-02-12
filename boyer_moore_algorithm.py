@@ -191,14 +191,15 @@ class BoyerMoorePreProcessing:
 
 class BoyerMooreAlgorithm:
 
-        """
+
+    """
         BoyerMooreAlgorithm: This class implements
         the Boyer-Moore algorithm for exact pattern matching in a sequence.
 
         It uses the preprocessed pattern from BoyerMoorePreProcessing
         to efficiently find exact matches in the sequence.
 
-        """
+    """
     
     def __init__(self, data):
 
